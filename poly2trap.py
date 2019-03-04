@@ -53,7 +53,7 @@ dude = [[174.50415,494.59368],[215.21844,478.87939],[207.36129,458.87939],[203.0
     [192.89701,377.80796],[177.18272,402.27225],[172.36129,413.87939],[169.14701,430.48653],[168.61129,458.52225],
     [168.61129,492.80796]]
 
-seidel = seidel.Triangulator(dude)
+seidel = seidel.Triangulator(test)
 
 triangles = seidel.triangles()
 trapezoids = seidel.trapezoids
@@ -67,7 +67,7 @@ for t in trapezoids:
     
     plt.gca().add_patch(PolygonPatch(Polygon(verts)))
     plt.gca().autoscale(tight=False)
-    print verts
+    print (verts)
 #    plt.show()
 #    for vert in verts:
 #        plt.plot(vert[0], vert[1], '-')

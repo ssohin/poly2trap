@@ -30,7 +30,7 @@
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 # 
 from random import shuffle
-from math import atan2
+from math import atan2, sqrt
 
 ##
 ## Based on Raimund Seidel'e paper "A simple and fast incremental randomized
@@ -88,11 +88,11 @@ class Point(object):
         return Point(self.x, self.y)
 
 def orient2d(pa, pb, pc):
-    acx = pa.x - pc.x;
-    bcx = pb.x - pc.x;
-    acy = pa.y - pc.y;
-    bcy = pb.y - pc.y;
-    return acx * bcy - acy * bcx;
+    acx = pa.x - pc.x
+    bcx = pb.x - pc.x
+    acy = pa.y - pc.y
+    bcy = pb.y - pc.y
+    return acx * bcy - acy * bcx
 
 class Edge(object):
     
@@ -314,8 +314,8 @@ def shear_transform(point):
  
 def merge_sort(l):
     if len(l)>1 :
-        lleft = merge_sort(l[:len(l)/2])
-        lright = merge_sort(l[len(l)/2:])
+        lleft = merge_sort(l[:len(l)//2])
+        lright = merge_sort(l[len(l)//2:])
         p1, p2, p = 0, 0, 0
         while p1<len(lleft) and p2<len(lright):
             if lleft[p1].x < lright[p2].x:
@@ -328,7 +328,7 @@ def merge_sort(l):
                 p2+=1
         if p1<len(lleft):l[p:]=lleft[p1:]
         elif p2<len(lright):l[p:]=lright[p2:]
-        else : print "internal error"
+        else : print ("internal error")
     return l
 
 class TrapezoidalMap(object):
