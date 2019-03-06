@@ -88,15 +88,15 @@ for i in range(0, len(trapezoid_verts_list)):
 new_poly_coords = list(set(new_poly_coords)) #remove duplicates by converting to set
     
 #sort new poly coords in ccw 
-new_poly_coords = sorted(new_poly_coords, key=lambda k: [k[0], k[1]])
+#new_poly_coords = sorted(new_poly_coords, key=lambda k: [k[0], k[1]])
 new_poly_coords = seidel.ccw_sort(new_poly_coords)
 
 fig,ax = plt.subplots()    
 xb = [i[0] for i in new_poly_coords[:]]
 yb = [i[1] for i in new_poly_coords[:]]
 ax.plot(xb,yb, color='r')
-
+'''
 plt.gca().add_patch(PolygonPatch(Polygon(new_poly_coords)))
 plt.gca().autoscale(tight=False)
-
+'''
 plt.show()
