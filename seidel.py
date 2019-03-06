@@ -31,6 +31,7 @@
 # 
 from random import shuffle
 from math import atan2, sqrt
+import numpy as np
 
 ##
 ## Based on Raimund Seidel'e paper "A simple and fast incremental randomized
@@ -624,3 +625,11 @@ class MonotoneMountain:
         if self.positive != (self.angle(p) >= 0): 
             return False
         return True  
+
+def ccw_sort(p):
+    """Sort given polygon points in CCW order"""
+    p = np.array(p)
+    mean = np.mean(p,axis=0)
+    d = p-mean
+    s = np.arctan2(d[:,0], d[:,1])
+    return p[np.argsort(s),:]
